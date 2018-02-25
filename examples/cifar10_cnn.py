@@ -15,7 +15,9 @@ import os
 
 batch_size = 32
 num_classes = 10
-epochs = 100
+# epochs = 100
+epochs = 25  # 75 % accuracy good enough
+
 data_augmentation = True
 num_predictions = 20
 save_dir = os.path.join(os.getcwd(), 'saved_models')

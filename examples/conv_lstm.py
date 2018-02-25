@@ -103,6 +103,17 @@ noisy_movies, shifted_movies = generate_movies(n_samples=1200)
 seq.fit(noisy_movies[:1000], shifted_movies[:1000], batch_size=10,
         epochs=300, validation_split=0.05)
 
+
+import os
+save_dir = os.path.join(os.getcwd(), 'saved_models')
+model_name = 'keras_conv_lstm_trained_model.h5'
+# Save model and weights
+if not os.path.isdir(save_dir):
+    os.makedirs(save_dir)
+model_path = os.path.join(save_dir, model_name)
+seq.save(model_path)
+
+
 # Testing the network on one movie
 # feed it with the first 7 positions and then
 # predict the new positions
